@@ -1,5 +1,5 @@
 var io = require("socket.io-client");
-var serverUrl = "http://localhost:9090/ws";
+var serverUrl = "<IpOfYourServerWithWebSocket>";
 var conn = io.connect(serverUrl);
 const mqtt = require("mqtt");
 var conn_opt = {
@@ -15,11 +15,16 @@ Number.prototype.pwmMap = function() {
     return this * 1024 / 255;
 };
 
+conn.on("color", data => {
+    console.log(data);
+
+});
+
 conn.on("status", data => {
     console.log(data);
-    if (data.mode == "partyMode") {
+    if (data.mode.replace(/\s+/g, "").toUpperCase() == "PARTYMODE") {
         client.publish("musicSync", "rgb");
-    } else if (data.mode == "syncToColor") {
+    } else if (data.mode.replace(/\s+/g, "").toUpperCase() == "SYNCTOCOLOR") {
         client.publish(
             "musicSyncRGB",
             data.led.red.pwmMap() +
@@ -32,7 +37,7 @@ conn.on("status", data => {
             "," +
             data.led.yellow.pwmMap()
         );
-    } else if (data.mode == "colorMyRoom") {
+    } else if (data.mode.replace(/\s+/g, "").toUpperCase() == "COLORMYROOM") {
         client.publish(
             "lightCommands",
             data.led.red.pwmMap() +
@@ -45,18 +50,18 @@ conn.on("status", data => {
             "," +
             data.led.yellow.pwmMap()
         );
-    } else if (data.mode == "readMode") {
+    } else if (data.mode.replace(/\s+/g, "").toUpperCase() == "READMODE") {
         client.publish(
             "lightCommands",
-            data.led.red.pwmMap() +
+            0 +
             "," +
-            data.led.green.pwmMap() +
+            0 +
             "," +
-            data.led.blue.pwmMap() +
+            0 +
             "," +
-            data.led.white.pwmMap() +
+            (120).pwmMap() +
             "," +
-            data.led.yellow.pwmMap()
+            (255).pwmMap()
         );
     }
 });
