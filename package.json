@@ -1,29 +1,30 @@
 {
-  "name": "spectrum",
-  "version": "1.0.0",
-  "description": "IOT Gateway for Variegation",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ersanyamarya/spectrum.git"
-  },
-  "keywords": [
-    "iot",
-    "Variegation",
-    "Sanyam Arya"
-  ],
-  "author": "Sanyam Arya",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ersanyamarya/spectrum/issues"
-  },
-  "homepage": "https://github.com/ersanyamarya/spectrum#readme",
-  "dependencies": {
-    "mqtt": "^2.15.1",
-    "socket.io-client": "^2.0.4"
-  }
+    "name": "spectrum",
+    "version": "1.0.0",
+    "description": "IOT Gateway for Variegation",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ersanyamarya/spectrum.git"
+    },
+    "keywords": [
+        "iot",
+        "Variegation",
+        "Sanyam Arya"
+    ],
+    "author": "Sanyam Arya",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ersanyamarya/spectrum/issues"
+    },
+    "homepage": "https://github.com/ersanyamarya/spectrum#readme",
+    "dependencies": {
+        "mqtt": "^2.15.1",
+        "node-dht-sensor": "0.0.33",
+        "socket.io-client": "^2.0.4"
+    }
 }

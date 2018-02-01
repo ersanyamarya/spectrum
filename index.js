@@ -1,5 +1,5 @@
 var io = require("socket.io-client");
-var serverUrl = "<IpOfYourServerWithWebSocket>";
+var serverUrl = "yourIP:port";
 var conn = io.connect(serverUrl);
 const mqtt = require("mqtt");
 var conn_opt = {
