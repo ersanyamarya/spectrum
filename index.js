@@ -6,7 +6,7 @@ const mqtt = require("mqtt");
 const fs = require("fs");
 var io = require("socket.io-client");
 var allOff = false;
-var serverUrl = "http://35.154.179.244:8888/ws";
+var serverUrl = "<your URI to web socket>";
 var conn = io.connect(serverUrl);
 var conn_opt = {
     host: "localhost",
@@ -33,7 +33,7 @@ weather.find({ search: place, degreeType: 'C' }, function(err, result) {
     };
     dbOperations.addToDb(toSend);
     var optsData = {
-        uri: "http://35.154.179.244:8888/api/data",
+        uri: "http://<Your IP>/api/data",
         headers: {
             "Content-Type": "application/json"
         },
@@ -60,7 +60,7 @@ setInterval(function() {
         };
         dbOperations.addToDb(toSend);
         var optsData = {
-            uri: "http://35.154.179.244:8888/api/data",
+            uri: "http://<your IP>/api/data",
             headers: {
                 "Content-Type": "application/json"
             },
